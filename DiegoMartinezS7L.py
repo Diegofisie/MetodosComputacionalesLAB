@@ -1,6 +1,4 @@
 
-# coding: utf-8
-
 # In[34]:
 
 import numpy as np
@@ -22,7 +20,6 @@ y=x+ruido*np.exp(-0.1*(x-5)**2)
 z=x+y+uniform(-3,3,N)*np.exp(0.05*(-(x-np.mean(x))**2-(y-np.mean(y))**2))
 
 
-# In[36]:
 
 #Punto 3
 x = x-np.mean(x)
@@ -35,14 +32,11 @@ datos=[x,y,z]
 print("Las medias son:", np.mean(x),np.mean(y),np.mean(z),"Las varianzas son:",np.var(x),np.var(y),np.var(z))
 
 
-# In[55]:
-
 #Punto 4
 cov = np.cov([x,y,z])
 print(cov)
 
 
-# In[62]:
 
 #Punto 5
 val,vec = np.linalg.eig(cov)
@@ -53,8 +47,6 @@ principales = vec[0],vec[1]
 print("Los componentes principales son:",principales)
 
 
-# In[63]:
-
 #Punto 6
 datos = [x,y,z]
 datos_1 = np.matmul(np.transpose(datos),vec[0])
@@ -63,21 +55,12 @@ plt.scatter(datos_1,datos_2)
 plt.show()
 
 
-# In[68]:
-
 #Bono
 fig = plt.figure()
 ax = fig.add_subplot(111,projection = '3d')
 ax.scatter(x,y,z)
+ax.quiver(0,0,0, vec[0],vec[1],vec[2], length = 4)
 plt.show()
-
-
-# In[ ]:
-
-
-
-
-# In[ ]:
 
 
 

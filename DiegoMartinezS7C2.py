@@ -16,7 +16,7 @@ plt.close()
 #parte 2
 filtro = fourier(abs(freq)<1.0/7.0)
 datosfiltrados = ifft(filtro)
-diaas = a[:,0]
+diaas = datos[:,0]
 anios_ultimos = np.where(diaas>=365*3)
 plt.plot(diaas[anios_ultimos], datosfiltrados[anios_ultimos])
 plt.plt.savefig("trm 3years limpio.pdf",format="pdf")
